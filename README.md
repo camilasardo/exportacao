@@ -4,8 +4,8 @@ contract Exportacao {
         string public vendedor; 
         string public comprador;
         string public transportador;
-        uint256 public valor; 
-        uint256 public quantidade;
+        uint256 private valor; 
+        uint256 private quantidade;
         address payable public contaVendedor;
         address public contaComprador;
         address public contaTransportador;
@@ -48,6 +48,6 @@ contract Exportacao {
         require (acucarEntregue == true);
         contaVendedor.transfer (msg.value); 
         exportPago = true;
-        emit exportacaoConcluida (msg.value);
+        emit exportacaoConcluida (quantidade);
     }
 }
